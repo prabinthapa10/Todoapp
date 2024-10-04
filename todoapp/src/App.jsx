@@ -3,14 +3,14 @@ import "./App.css";
 
 function App() {
   // static variable which store value and array  setTodos to store many values
-  const [todo, setTodo] = useState("");
+  const [todo, setTodo] = useState({ name: "", done: false });
   const [todos, setTodos] = useState([]);
 
   // handle submit
   function handleSubmit(e) {
     e.preventDefault();
-    setTodos([...todos, todo]);
-    setTodo("");
+    setTodos([...todos, todo.name]);
+    setTodo({ name: "", done: false });
   }
 
   function handleDelete(todo) {
@@ -25,8 +25,8 @@ function App() {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            onChange={(e) => setTodo(e.target.value)}
-            value={todo}
+            onChange={(e) => setTodo({ name: e.target.value, done: false })}
+            value={todo.name}
           />
           <button type="submit">Add</button>
         </form>
