@@ -13,6 +13,11 @@ function App() {
     setTodo("");
   }
 
+  function handleDelete(todo) {
+    console.log("clicked", { todo });
+    // this will set true when item didnot match and flase when match and remove
+    setTodos(todos.filter((item) => item != todo));
+  }
   return (
     <div>
       <div>Todolist Apps</div>
@@ -26,7 +31,17 @@ function App() {
           <button type="submit">Add</button>
         </form>
         {todos.map((todo) => (
-          <li>{todo}</li>
+          <div>
+            <li>
+              {todo}
+              <button
+                style={{ margin: "14px" }}
+                onClick={() => handleDelete(todo)}
+              >
+                X
+              </button>
+            </li>
+          </div>
         ))}
       </div>
     </div>
