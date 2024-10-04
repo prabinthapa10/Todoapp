@@ -10,6 +10,7 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
     setTodos([...todos, todo]);
+    setTodo("");
   }
 
   return (
@@ -22,9 +23,11 @@ function App() {
             onChange={(e) => setTodo(e.target.value)}
             value={todo}
           />
-          <p>{todos}</p>
           <button type="submit">Add</button>
         </form>
+        {todos.map((todo) => (
+          <li>{todo}</li>
+        ))}
       </div>
     </div>
   );
