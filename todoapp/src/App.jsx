@@ -9,7 +9,9 @@ function App() {
   // handle submit
   function handleSubmit(e) {
     e.preventDefault();
+    setTodos([...todos, todo]);
   }
+
   return (
     <div>
       <div>Todolist Apps</div>
@@ -20,7 +22,7 @@ function App() {
             onChange={(e) => setTodo(e.target.value)}
             value={todo}
           />
-          <p>{todo}</p>
+          <p>{todos}</p>
           <button type="submit">Add</button>
         </form>
       </div>
